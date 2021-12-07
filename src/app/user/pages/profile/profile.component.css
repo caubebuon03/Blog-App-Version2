@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .container>.authorArticles {
+    width: 60%;
+  }
+  
+  .authorArticles>.articleMenu {
+    list-style: none;
+    margin-bottom: 12px;
+  }
+  
+  .articleMenu>li {
+    margin-right: 12px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bolder;
+  }
+  
+  .active {
+    background: #ecf0f1
+    /* border-bottom: 2px solid #5cb85c; */
+  }
+  

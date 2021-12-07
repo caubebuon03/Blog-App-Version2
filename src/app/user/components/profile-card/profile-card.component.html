@@ -1,0 +1,24 @@
+<div *ngIf="isLoading; else profileCard">
+    Loading Profile ...
+  </div>
+  
+  <ng-template #profileCard>
+    <div class="authorDetails vcenter">
+      <div class="authorImg center">
+        <img [src]="author.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" alt="user.png" style="border: 0;" />
+      </div>
+      <div class="authorName">
+        {{ author.username }}
+      </div>
+      <div class="authorBio">
+        {{ author.bio || 'No Bio Provided'}}
+      </div>
+      <button *ngIf="isLoggedIn && author.username === currentUser;else userActions" class="grayBack" (click) = "editProfile()">Edit Profile</button>
+    </div>
+  </ng-template>
+  
+  <ng-template #userActions>
+    <button *ngIf="!author.following" class="greenBack" (click) = "follow()">Follow</button>
+    <button *ngIf="author.following" class="grayBack" (click) = "unfollow()">Unfollow</button>
+  </ng-template>
+  

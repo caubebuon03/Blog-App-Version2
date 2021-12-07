@@ -1,0 +1,35 @@
+<div class="formContainer">
+    <h2>Login</h2>
+    <div *ngIf="errors.length !== 0" class="errorContainer">
+      <h5>Errors</h5>
+      <ul>
+        <li *ngFor="let error of errors">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="handleForm(loginForm.value)">
+      <label for="">E-MAIL</label>
+      <input type="email" formControlName="email" placeholder="Enter your email">
+      <div *ngIf="form?.['email']?.invalid && (form?.['email']?.dirty || form?.['email']?.touched)" [ngClass]="'alert alert-danger'">
+        <div *ngIf="form?.['email']?.errors?.['required']">
+          E-Mail is required.
+        </div>
+        <div *ngIf="form?.['email']?.errors?.['email']">
+          Invalid E-mail
+        </div>
+      </div>
+      <label for="">PASSWORD</label>
+      <input type="password" formControlName="password" placeholder="Enter the password">
+      <div *ngIf="form?.['password']?.invalid && (form?.['password']?.dirty || form?.['password']?.touched)" [ngClass]="'alert alert-danger'">
+        <div *ngIf="form?.['password']?.errors?.['required']">
+          Password is required.
+        </div>
+        <div *ngIf="form?.['password']?.errors?.['minlength']">
+          Password must be at least 8 characters long.
+        </div>
+      </div>
+      <input type="submit" value="LOGIN" [disabled]="!loginForm.valid">
+    </form>
+  </div>
+  

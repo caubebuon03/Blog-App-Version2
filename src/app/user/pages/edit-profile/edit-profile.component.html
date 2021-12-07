@@ -1,0 +1,57 @@
+<div *ngIf="!isLoading" class="formContainer">
+    <h2>Edit Profile</h2>
+    <div *ngIf="errors.length !== 0" class="errorContainer">
+      <h5>Errors</h5>
+      <ul>
+        <li *ngFor="let error of errors">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="handleForm(userForm.value)">
+      <label for="">Image URL</label>
+      <input type="text" formControlName="image" placeholder="Enter profile image URL">
+      <div *ngIf="form?.['image']?.invalid && (form?.['image']?.dirty || form?.['image']?.touched)" [ngClass]="'alert alert-danger'">
+        <div *ngIf="form?.['image']?.errors?.['required']">
+          Image URL is required.
+        </div>
+        <div *ngIf="form?.['image']?.errors?.['pattern']">
+          Image URL is invalid.
+        </div>
+      </div>
+      <label for="">USERNAME</label>
+      <input type="text" formControlName="username" placeholder="Enter your username">
+      <div *ngIf="form?.['username']?.invalid && (form?.['username']?.dirty || form?.['username']?.touched)" [ngClass]="'alert alert-danger'">
+        <div *ngIf="form?.['username']?.errors?.['required']">
+          Username is required.
+        </div>
+        <div *ngIf="form?.['username']?.errors?.['minlength']">
+          Username must be at least 5 characters long.
+        </div>
+      </div>
+      <label for="">Bio</label>
+      <textarea type="text" formControlName="bio" cols="30" placeholder="Tell us more about you ?"></textarea>
+      <label for="">E-MAIL</label>
+      <input type="email" formControlName="email">
+      <div *ngIf="form?.['email']?.invalid && (form?.['email']?.dirty || form?.['email']?.touched)" [ngClass]="'alert alert-danger'">
+        <div *ngIf="form?.['email']?.errors?.['required']">
+          E-Mail is required.
+        </div>
+        <div *ngIf="form?.['email']?.errors?.['email']" placeholder="Enter your email">
+          Invalid E-mail
+        </div>
+      </div>
+      <label for="">PASSWORD</label>
+      <input type="password" formControlName="password" placeholder="Enter the password">
+      <div *ngIf="form?.['password']?.invalid && (form?.['password']?.dirty || form?.['password']?.touched)" [ngClass]="'alert alert-danger'">
+        <div *ngIf="form?.['password']?.errors?.['required']">
+          Password is required.
+        </div>
+        <div *ngIf="form?.['password']?.errors?.['minlength']">
+          Password must be at least 8 characters long.
+        </div>
+      </div>
+      <input type="submit" value="Edit User" [disabled]="!userForm.valid">
+    </form>
+  </div>
+  

@@ -1,0 +1,16 @@
+<div class="commentContainer">
+    <div class="commentBody">
+        {{comment.body}}
+    </div>
+
+    <div class="commentMeta vcenter">
+        <div class="authorInfo vcenter">
+            <img [src]="comment.author.image" alt="">
+            <a [routerLink]="['/profile', comment.author.username]">
+                <h4>{{comment.author.username}}</h4>
+            </a>
+            <p>{{comment.createdAt | date}}</p>
+        </div>
+        <button *ngIf="isLoggedIn && comment.author.username === currentUser" (click)="deleteComment()"><i class="fas fa-trash"></i></button>
+    </div>
+</div>

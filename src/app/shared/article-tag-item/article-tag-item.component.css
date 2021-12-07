@@ -1,0 +1,11 @@
+.tag {
+    font-size: 12px;
+    font-weight: bolder;
+    color: #5cb85c;
+    padding: 4px 8px;
+    background: #ecf0f1;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  

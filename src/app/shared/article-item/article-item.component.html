@@ -1,0 +1,26 @@
+<div class="articleItem">
+    <div class="articleHeader">
+      <div class="vcenter">
+        <img [src]="article.author.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" alt="">
+        <div class="info">
+          <a [routerLink]="['/profile',article.author.username]">
+            <h4>{{ article.author.username }}</h4>
+          </a>
+          <h5>{{ article.createdAt | date }}</h5>
+        </div>
+      </div>
+      <div *ngIf="!article.favorited" (click)="favorite()" class="vcenter fav"><i class="fas fa-heart"></i> {{
+        article.favoritesCount }}</div>
+      <div *ngIf="article.favorited" (click)="unfavorite()" class="vcenter fav fav-done"><i class="fas fa-heart"></i> {{
+        article.favoritesCount }}</div>
+    </div>
+    <div class="articleContent">
+      <h2>{{ article.title }}</h2>
+      <p>{{ article.description }}</p>
+    </div>
+    <div class="articleExtra vcenter">
+      <button (click)="readArticle(article.slug)">READ</button>
+      <app-article-tag-list *ngIf=" article.tagList.length != 0 " [articleTags]="article.tagList | slice:0:3"></app-article-tag-list>
+    </div>
+  </div>
+  

@@ -1,0 +1,15 @@
+<div class="container">
+    <app-profile-card [username]="username"></app-profile-card>
+    <div class="authorArticles">
+      <ul class="articleMenu vcenter">
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['posts']">My Posts</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['favourites']">Favourite Articles</a>
+        </li>
+      </ul>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

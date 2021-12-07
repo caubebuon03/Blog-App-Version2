@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tags {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    list-style: none;
+  }
+  

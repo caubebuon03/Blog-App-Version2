@@ -1,0 +1,14 @@
+<div *ngIf="isLoading;else feed">
+    Loading Articles ...
+  </div>
+  
+  <ng-template #feed>
+    <div *ngIf="globalArticles.length == 0;else articles">
+      Nothing Here Yet ...
+    </div>
+  </ng-template>
+  
+  <ng-template #articles>
+    <app-article-list [articles]="globalArticles"></app-article-list>
+    <app-pagination [totalItems] = "noOfArticles" (pageSeleted) = "selected($event)"></app-pagination>
+  </ng-template>

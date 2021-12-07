@@ -1,0 +1,49 @@
+<nav class="vcenter">
+    <div class="logoHeader vcenter">
+      <div class="logo center">C</div>
+      <h1>conduit</h1>
+    </div>
+    <div *ngIf="!isLoggedIn; else loggedInMenu" class="menu vcenter">
+      <a [routerLink]="['home']">
+        <div class="menuItem">
+          Home
+        </div>
+      </a>
+      <a [routerLink]="['login']">
+        <div class="menuItem">
+          Login
+        </div>
+      </a>
+      <a [routerLink]="['signup']">
+        <div class="menuItem">
+          SignUp
+        </div>
+      </a>
+    </div>
+    <ng-template #loggedInMenu>
+      <div class="menu vcenter">
+        <a [routerLink]="['home/yourfeed']">
+          <div class="menuItem">
+            Home
+          </div>
+        </a>
+        <a [routerLink]="['editor']">
+          <div class="menuItem">
+            New Article
+          </div>
+        </a>
+        <a [routerLink]="['/user/settings']">
+            <div class="menuItem">
+              ProfileSettings
+            </div>
+          </a>
+        <a [routerLink]="['/profile',currentUser]">
+          <div class="menuItem">
+            {{ currentUser }}
+          </div>
+        </a>
+        <button (click)='logout()'> LOGOUT</button>
+      </div>
+    </ng-template>
+  </nav>
+  

@@ -1,0 +1,33 @@
+<main>
+    <div *ngIf="!isLoggedIn" class="banner center">
+      <h1 style="margin-bottom: 12px;">conduit</h1>
+      <h4>An angular based Blog App</h4>
+    </div>
+    <div class="container">
+      <div class="feedContainer">
+        <ul class="feedMenu vcenter">
+          <li *ngIf="isLoggedIn" [routerLinkActive]="['active']">
+            <a [routerLink]="['yourfeed']">Your Feed</a>
+          </li>
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="['globalfeed']">Global Feed</a>
+          </li>
+          <li *ngIf="router.url.includes('tagfeed')" class="active">
+            Tag Feed
+          </li>
+        </ul>
+        <router-outlet></router-outlet>
+      </div>
+      <div *ngIf="!tagsLoading" class="tagsContainer">
+        <h3>Popular Tags</h3>
+        <ul class="tagList">
+          <li *ngFor="let tag of tags">
+            <a [routerLink]="['tagfeed']" [queryParams]="{tag: tag}">
+              <div class="tag">{{ tag }}</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  

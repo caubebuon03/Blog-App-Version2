@@ -1,0 +1,46 @@
+nav {
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    justify-content: space-between;
+    padding: 0 50px;
+  }
+  
+  nav>.logoHeader {
+    width: 160px;
+    justify-content: space-around;
+    color: #5cb85c;
+  }
+  
+  nav>.logoHeader>.logo {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid #5cb85c;
+    /*   color:white; */
+    font-weight: bolder;
+  }
+  
+  .menuItem {
+    font-weight: bolder;
+    letter-spacing: 2px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-right: 8px;
+  }
+  
+  .menuItem:hover {
+    background: #ecf0f1
+  }
+  
+  button {
+    padding: 4px 8px;
+    background: #5cb85c;
+    border: 0;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
